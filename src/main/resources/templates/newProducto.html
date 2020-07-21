@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Crear Registro</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container mt-4">
+	
+	<!-- NAVBAR GENERAL -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand">Neptuno</a>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Lista de Tablas
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" th:href="@{/restCategorias}">Rest Categorias</a>
+          <a class="dropdown-item" th:href="@{/restProveedores}">Rest Proveedores</a>
+          <a class="dropdown-item" th:href="@{/restProductos}">Rest Productos</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Rest de Tablas
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" th:href="@{/listarCategorias}">Rest Categorias</a>
+          <a class="dropdown-item" th:href="@{/listarCategorias}">Rest Proveedores</a>
+          <a class="dropdown-item" th:href="@{/listarCategorias}">Rest Productos</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+	<!-- NAVBAR GENERAL -->
+	<br />
+		<div class="col-sm-6">
+			<form th:action="@{/saveProductos}" th:object="${producto}" method="POST">
+				<div class="card">
+					<div class="card-header">
+						<h3>Crear Producto</h3>
+					</div>
+					<div class="card-body">
+						<div class="form-group">
+							<label>Nombre Producto</label>
+							<input th:field="*{nombreProducto}" type="text" class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>PROVEEDOR</label>
+							<input th:field="*{idProveedor.id}" type="text" class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>CATEGORIA</label>
+							<input th:field="*{idCategoria.id}" type="text" class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>Cantidad x Unidad</label>
+							<input th:field="*{cantidadPorUnidad}" type="text" class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>Precio de Unidad</label>
+							<input th:field="*{precioUnidad}" type="text" class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>Stock</label>
+							<input th:field="*{unidadesEnExistencia}" type="text" class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>Unidades Pedidos</label>
+							<input th:field="*{unidadesEnPedido}" type="text" class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>Cantidad de Nuevo Pedido</label>
+							<input th:field="*{nivelNuevoPedido}" type="text" class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>Productos Suspendidos</label>
+							<input th:field="*{suspendido}" type="text" class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>Categoria del Producto</label>
+							<input th:field="*{categoriaProducto}" type="text" class="form-control" />
+						</div>
+					</div>
+					<div class="card-footer">
+						<input type="submit" value="Guardar" class="btn btn-success"/>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	
+	<!-- https://code.jquery.com/ -->
+	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	
+</body>
+</html>
